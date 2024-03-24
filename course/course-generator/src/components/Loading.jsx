@@ -1,0 +1,69 @@
+import React, { useEffect } from 'react';
+import './Loading.css';
+import { BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import Navbar from './Navbar';
+import Home from './Home';
+
+function Loading() {
+
+  useEffect(() => {
+    // JavaScript functionality
+    const blob = document.getElementById("blob");
+
+    window.onpointermove = event => { 
+      const { clientX, clientY } = event;
+      
+      blob.animate({
+        left: `${clientX}px`,
+        top: `${clientY}px`
+      }, { duration: 3000, fill: "forwards" });
+    }
+
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let interval = null;
+
+    document.querySelector("h1").onmouseover = event => {  
+      let iteration = 0;
+      
+      clearInterval(interval);
+      
+      interval = setInterval(() => {
+        event.target.innerText = event.target.innerText
+          .split("")
+          .map((letter, index) => {
+            if(index < iteration) {
+              return event.target.dataset.value[index];
+            }
+          
+            return letters[Math.floor(Math.random() * 26)]
+          })
+          .join("");
+        
+        if(iteration >= event.target.dataset.value.length){ 
+          clearInterval(interval);
+        }
+        
+        iteration += 1 / 3;
+      }, 30);
+    }
+
+     
+    return () => clearInterval(interval);
+  }, []);  
+
+  return (
+    <router>
+      <routes>
+    <div>
+      <div id="blob"></div>
+      <div id="blur"></div>
+      <h1 data-value="LEARN WITH AI">LEARN WITH AI</h1>
+      <a href='/Home'><h2><button className='btn'>Get Started</button></h2></a>
+    </div>
+    </routes>
+    </router>
+  );
+}
+
+
+export default Loading;
