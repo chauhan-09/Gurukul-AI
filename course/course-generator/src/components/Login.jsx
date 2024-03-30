@@ -4,7 +4,6 @@ import './Login.css'
 function Login() {
   return (
     <div>
-      <h2>Register</h2>
       <div className="A1">
       <div className="form-group fullname">
         <label for="fullname">Full Name</label>

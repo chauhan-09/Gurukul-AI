@@ -8,16 +8,15 @@ import Home from './components/Home';
 
 function App() {
   return (
-    <div>
-      <Loading />
-      <Navbar />
-      <Router>
+    <Router>
+      <div>
+        <Navbar/>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Loading />} />
           <Route path="/Login" element={<Login />} />
         </Routes>
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
 

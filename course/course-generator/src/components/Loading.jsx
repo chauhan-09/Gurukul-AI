@@ -58,7 +58,7 @@ function Loading() {
       <div id="blob"></div>
       <div id="blur"></div>
       <h1 data-value="LEARN WITH AI">LEARN WITH AI</h1>
-      <a href='/Home'><h2><button className='btn'>Get Started</button></h2></a>
+      <a href='/Start'><h2><button className='btn'>Get Started</button></h2></a>
     </div>
     </routes>
     </router>
